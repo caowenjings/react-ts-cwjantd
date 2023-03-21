@@ -1,8 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Hello from "./Hello";
-import useMousePosition from "./hooks/useMousePosition";
 
 interface IThemeProps {
   [key: string]: { color: string; background: string };
@@ -22,15 +19,7 @@ const App: React.FC = () => {
       domRef.current.focus();
     }
   });
-  return (
-    <div className="App">
-      <ThemesContext.Provider value={themes.light}>
-        <p>llll</p>
-        <Hello msg="nihh" />
-        <input type="text" ref={domRef} />
-      </ThemesContext.Provider>
-    </div>
-  );
+  return <div className="App">oo</div>;
 };
 
 export default App;
