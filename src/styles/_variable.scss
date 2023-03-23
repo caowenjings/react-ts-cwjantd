@@ -1,0 +1,8 @@
+/** 注意 _variables 和 _reboot 两个文件以下划线开头，这个是告诉scss编译器，这个scss的模块，
+无法直接使用，只能 @import 引入 **/
+
+// 1.定义颜色
+$white: #fff !default; // !default scss用来指定变量默认值 ，如果分配给变量的值后面添加了 !default 标志 ，这意味着该变量如果已经赋值，那么它不会被重新赋值，但是，如果它尚未赋值，那么它会被赋予新的给定值。
+$blue: #0d6efd !default;
+//2设置系统色
+$primary: $blue !default;

@@ -1,0 +1,12 @@
+/** 注意 _variables 和 _reboot 两个文件以下划线开头，这个是告诉scss编译器，这个scss的模块，
+无法直接使用，只能 @import 引入 **/
+
+// config
+@import "./variable";
+//layout
+@import "./reboot";
+$color:'red';
+$color:'blue' !default;
+.aa {
+    color: $color;
+}
