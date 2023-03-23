@@ -3,10 +3,12 @@
 
 // config
 @import "./variable";
+
 //layout
 @import "./reboot";
-$color:'red';
-$color:'blue' !default;
-.aa {
-    color: $color;
-}
+
+//mixin
+@import "./mixin";
+
+// animation
+@import "./animation";
