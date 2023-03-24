@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
+//1.定义枚举,props中会用到的size，type
 export enum ButtonType {
   Primary = 'primary',
   Defalut = 'defalut',
@@ -15,12 +16,13 @@ export enum ButtonSize {
   Default = 'default'
 }
 
+// 2.创建props的接口类型
 interface IButtonProps {
   className?: string
   disabled?: boolean
   size?: ButtonSize
   btnType?: ButtonType
-  children?: React.ReactNode
+  children?: React.ReactNode //相当于vue中的slot
   href?: string
 }
 
@@ -28,7 +30,7 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = (props) => {
   let { className, disabled, size, btnType, children, href } = props
 
-  const classes = classNames('btn', {
+  const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size || 'default',
     disabled: btnType == ButtonType.Link && disabled
