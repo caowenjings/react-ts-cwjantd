@@ -6,13 +6,11 @@
     vertical-align: middle;
     font-weight: $btn-font-weight;
     font-family: $btn-font-family;
-    font-size: $btn-font-size;
     line-height: $btn-font-size;
     background-image: none;
     border:$btn-border-width solid transparent;
-    padding: $btn-padding-y $btn-padding-x;
     box-shadow: $btn-box-shadow;
-    border-radius: $btn-border-radius;
+    @include button-size($btn-padding-y, $btn-padding-x ,$btn-font-size, $btn-border-radius);
     cursor: pointer;
     transition: $btn-transition;
     &.disabled,&[disabled]{
@@ -24,5 +22,49 @@
             pointer-events: none 
         }
     }
-   
+}
+
+// button的大小
+
+.btn-lg{
+    @include button-size($btn-padding-y-lg ,$btn-padding-x-lg ,$btn-font-size-lg, $btn-border-radius-lg);
+}
+.btn-sm{
+    @include button-size($btn-padding-y-sm ,$btn-padding-x-sm ,$btn-font-size-sm ,$btn-border-radius-sm);
+}
+
+// button的颜色类型
+
+.btn-primary{
+    @include button-style($primary,$primary, $border-color)
+}
+
+.btn-danger{
+    @include button-style($danger,$danger, $border-color)
+    
+}
+
+.btn-default{
+    @include button-style($white,$gray-400, $border-color,$primary,$primary)
+}
+
+.btn-link{
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    box-shadow: none;
+    text-decoration: $link-hover-decoration;
+    &:hover {
+        color: $btn-link-hover-color;
+        text-decoration: $link-hover-decoration; 
+      }
+      &:focus,
+      &.focus {
+        text-decoration: $link-hover-decoration;
+        box-shadow: none;
+      }
+      &:disabled,
+      &.disabled {
+        color: $btn-link-disabled-color;
+        pointer-events: none;
+      }
 }

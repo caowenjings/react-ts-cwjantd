@@ -1,3 +1,11 @@
+// @mixin 解决代码重复的问题
+/** 
+scss内置函数：
+@mixin 定义 @include引用
+lighten（） ：处理颜色
+*/
+
+//button 通用样式函数
 @mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
   padding: $padding-y $padding-x;
   font-size: $font-size;

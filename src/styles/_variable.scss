@@ -190,7 +190,8 @@ $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
-// 按钮
+// ----------------- 按钮 ----------------------------------
+
 // 按钮基本属性
 $btn-font-weight:             400;
 $btn-padding-y:               .375rem !default;
@@ -227,6 +228,8 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+
 
 // menu
 $menu-border-width:            $border-width !default;
