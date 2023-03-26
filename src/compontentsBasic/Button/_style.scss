@@ -1,0 +1,28 @@
+// btn 基础样式
+.btn{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: $btn-font-weight;
+    font-family: $btn-font-family;
+    font-size: $btn-font-size;
+    line-height: $btn-font-size;
+    background-image: none;
+    border:$btn-border-width solid transparent;
+    padding: $btn-padding-y $btn-padding-x;
+    box-shadow: $btn-box-shadow;
+    border-radius: $btn-border-radius;
+    cursor: pointer;
+    transition: $btn-transition;
+    &.disabled,&[disabled]{
+        cursor: pointer;
+        opacity: $btn-disabled-opacity;
+        box-shadow: none;
+         //所有子元素 禁止鼠标
+        > * {
+            pointer-events: none 
+        }
+    }
+   
+}
