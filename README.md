@@ -21,3 +21,9 @@ base: true,
 disabled: this.props.form.valid,
 })}>
 <Button/>
+
+3.测试用例 框架 jest
+官网 use matehrs 写法文档
+
+运行 npx jest jest.test.js
+一直运行 npx jest jest.test.js --watcher
