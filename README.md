@@ -22,6 +22,8 @@ disabled: this.props.form.valid,
 })}>
 <Button/>
 
+3. Button 继承原有的 button 属性
+
 3.测试用例 框架 jest
 官网 use matehrs 写法文档
 

@@ -1,6 +1,5 @@
-import React, { HtmlHTMLAttributes } from 'react'
+import React from 'react'
 import classNames from 'classnames'
-import { type } from 'os'
 
 //1.定义枚举,props中会用到的size，type
 export enum ButtonType {
@@ -32,30 +31,25 @@ type AnchotButtonProps = IBaseButtonProps & React.AnchorHTMLAttributes<HTMLEleme
 type IButtonProps = Partial<NativeButtonProps & AnchotButtonProps> //变成可选的
 
 const Button: React.FC<IButtonProps> = (props) => {
-  let { className, disabled, size, btnType, children, href, ...restProps } = props
+  let { className, disabled = false, size, btnType = ButtonType.Defalut, children, href, ...restProps } = props
 
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size || 'default',
-    disabled: btnType == ButtonType.Link && disabled
+    disabled: btnType === ButtonType.Link && disabled
   })
-  if (btnType == ButtonType.Link && href) {
+  if (btnType === ButtonType.Link && href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} {...restProps}>
         {children}
       </a>
     )
   }
   return (
-    <button className={classes} disabled={disabled} {...restProps}>
+    <button type="button" className={classes} disabled={disabled} {...restProps}>
       {children}
     </button>
   )
-}
-
-Button.defaultProps = {
-  disabled: false,
-  btnType: ButtonType.Defalut
 }
 
 export default Button
