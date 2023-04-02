@@ -175,8 +175,10 @@ $pre-color:                         null !default;
 // options 可配置选项
 $enable-pointer-cursor-for-buttons:           true !default;
 
-// 边框 和 border radius
+// ------------------------------------- 按钮 -------------------------------------------------
 
+
+// 边框 和 border radius
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
 
@@ -190,7 +192,6 @@ $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
-// ----------------- 按钮 ----------------------------------
 
 // 按钮基本属性
 $btn-font-weight:             400;
@@ -228,6 +229,25 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// ------------------------------------- Alert -------------------------------------------------
+
+$alert-width:                1px !default;
+$alert-border:                $gray-300 !default;
+$alert-color:                $gray-900 !default;
+
+$alert-radius:               .25rem !default;
+
+// 按钮基本属性
+$alert-font-weight:             400;
+$alert-padding-y:               .375rem !default;
+$alert-padding-x:               .75rem !default;
+$alert-font-family:             $font-family-base !default;
+$alert-font-size:               $font-size-base !default;
+$alert-line-height:             $line-height-base !default;
+$alert-border-radius:           $alert-radius !default;
+$alert-border-color:            $alert-border !default;
+             
 
 
 

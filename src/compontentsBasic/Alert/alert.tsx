@@ -2,11 +2,10 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import errorImg from '../../styles/images/error.svg'
-
+//1.定义四种主题
 export enum AlertType {
   Success = 'success',
-  Info = 'info',
+  Default = 'default',
   Warning = 'warning',
   Error = 'error'
 }
@@ -20,18 +19,42 @@ export enum AlertIcon {
 
 interface AlertProps {
   alertType?: AlertType
-  icon?: boolean
+  title?: string
+  message?: string
   children?: React.ReactNode
+  close?: boolean
+  showIcon?: boolean
 }
 
 const Alert: React.FC<AlertProps> = (props) => {
-  let { alertType, icon, children } = props
-  let classes = classNames('alert', { [`alert-${alertType}`]: alertType, [`alert-icon-${alertType}`]: alertType && icon })
-  return <p className={classes}>{children}</p>
-}
+  let { alertType = AlertType.Default, showIcon, title, children, close = true, message } = props
 
-Alert.defaultProps = {
-  alertType: AlertType.Info
+  // 盒子
+  let classesbox = classNames('alert', {
+    [`alert-${alertType}`]: alertType
+  })
+  // 内容
+  let classesContent = classNames('ant-alert-content', {
+    [`alert-content-${alertType}`]: alertType
+  })
+
+  let classesMsg = classNames('alert-message', {
+    [`alert-message-${alertType}`]: alertType,
+    [`alert-icon-${alertType}`]: alertType && showIcon
+  })
+
+  const handelDel = () => {}
+
+  return (
+    <div className={classesbox}>
+      {showIcon && <img src="" alt="" />}
+      <div className={classesContent}>
+        {title && <p>{title}</p>}
+        <div className={classesMsg}>{message}</div>
+      </div>
+      {close && <span onClick={handelDel}>关闭</span>}
+    </div>
+  )
 }
 
 export default Alert

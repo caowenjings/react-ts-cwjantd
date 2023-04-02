@@ -9,7 +9,7 @@ import Alert, { AlertType } from './compontentsBasic/Alert/alert'
 const App: React.FC = () => {
   return (
     <div className="App">
-      <li> --------------Button---------------- </li>
+      <li> --------------BaseButton---------------- </li>
       <div className="list">
         <Button btnType={ButtonType.Defalut}>Defalut</Button>
         <p className="block" />
@@ -40,8 +40,15 @@ const App: React.FC = () => {
           disabled Link
         </Button>
       </div>
-      <li> --------------Alert---------------- </li>
-      <Alert alertType={AlertType.Info}>提示</Alert>
+      <li> --------------BaseAlert---------------- </li>
+      <Alert alertType={AlertType.Success} message="success Tips" />
+      <p className="block" />
+      <Alert alertType={AlertType.Default} message="Default Tips" />
+      <p className="block" />
+      <Alert alertType={AlertType.Error} message="Error Tips" />
+      <p className="block" />
+      <Alert alertType={AlertType.Warning} message="Warning Tips" />
+      <p className="block" />
     </div>
   )
 }

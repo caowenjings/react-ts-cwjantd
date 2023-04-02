@@ -1,0 +1,28 @@
+// alert 基础样式
+.alert{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $alert-font-size;
+    line-height: $alert-line-height;
+    font-family: $alert-font-family;
+    padding: $alert-padding-y $alert-padding-x;
+    box-sizing: border-box;
+    border-radius:$alert-border-radius;
+    border: $alert-width solid $alert-border-color;
+    color: $alert-color;
+}
+
+.ant-alert-content{
+    display: flex;
+    flex-direction: column;
+}
+
+// alert 的颜色类型
+.alert-success{
+    background-color: green;
+    border: 1px solid #000;
+}
+.alert-defalut{}
+.alert-error{}
+.alert-warning{}
