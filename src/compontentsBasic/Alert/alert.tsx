@@ -24,11 +24,12 @@ interface AlertProps {
   message?: string
   children?: React.ReactNode
   close?: boolean
+  closeText?: string
   showIcon?: boolean
 }
 
 const Alert: React.FC<AlertProps> = (props) => {
-  let { alertType = AlertType.Default, showIcon, title, children, close = false, message } = props
+  let { alertType = AlertType.Default, showIcon, title, children, close = false, message, closeText } = props
 
   // 盒子
   let classesbox = classNames('alert', {
@@ -63,10 +64,12 @@ const Alert: React.FC<AlertProps> = (props) => {
           <div className={classesMsg}>{message}</div>
         </div>
       </div>
-      {close && (
+      {close || closeText ? (
         <span className={classesClose} onClick={handelDel}>
-          关闭
+          {closeText || '关闭'}
         </span>
+      ) : (
+        ''
       )}
     </div>
   )
