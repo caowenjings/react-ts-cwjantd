@@ -1,7 +1,6 @@
 // alert 出版组件
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import classNames from 'classnames'
-import { spawn } from 'child_process'
 
 //1.定义四种主题
 export enum AlertType {
@@ -24,12 +23,18 @@ interface AlertProps {
   message?: string
   children?: React.ReactNode
   close?: boolean
-  closeText?: string
+  closeText?: React.ReactNode
   showIcon?: boolean
+  onClose?: () => void
 }
 
+//构造函数，干啥的呢，现在还不知道，往下看吧。
+function noop() {}
+
 const Alert: React.FC<AlertProps> = (props) => {
-  let { alertType = AlertType.Default, showIcon, title, children, close = false, message, closeText } = props
+  let { alertType = AlertType.Default, showIcon, title, children, close = false, message, closeText, onClose } = props
+  let alertRef = useRef(null)
+  let [closeing, setCloseing] = useState(false)
 
   // 盒子
   let classesbox = classNames('alert', {
@@ -53,10 +58,26 @@ const Alert: React.FC<AlertProps> = (props) => {
     [`alert-message-${alertType}`]: alertType && showIcon
   })
 
-  const handelDel = () => {}
+  // 当closeText传入为true时，将closable设置为true，
+  if (closeText) {
+    close = true
+  }
 
-  return (
-    <div className={classesbox}>
+  //组件内部的点击关闭事件
+  const handleClose = (e: any) => {
+    e.preventDefault()
+    let dom: any = alertRef.current
+    dom.style.height = `${dom.offsetHeight}px`
+    // 重复一次后才能正确设置 height
+    dom.style.height = `${dom.offsetHeight}px`
+
+    //设置完高度之后通过setState来更新状态，关闭alert。
+    setCloseing(true)
+    onClose && onClose()
+  }
+
+  return closeing ? null : (
+    <div className={classesbox} ref={alertRef}>
       <div className="alert-df">
         {showIcon && <span className={classesIcon} />}
         <div className={classesContent}>
@@ -64,12 +85,10 @@ const Alert: React.FC<AlertProps> = (props) => {
           <div className={classesMsg}>{message}</div>
         </div>
       </div>
-      {close || closeText ? (
-        <span className={classesClose} onClick={handelDel}>
+      {close && (
+        <span className={classesClose} onClick={(e) => handleClose(e)}>
           {closeText || '关闭'}
         </span>
-      ) : (
-        ''
       )}
     </div>
   )
