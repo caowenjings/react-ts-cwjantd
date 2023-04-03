@@ -21,14 +21,22 @@ $gray-900: #212529 !default;
 $black:    #000 !default;
 
 $blue:    #0d6efd !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #d63384 !default;
-$red:     #dc3545 !default;
+$darkblue: #e6f4ff !default;
+$lightblue:#91caff !default;
+$indigo:   #6610f2 !default;
+$purple:   #6f42c1 !default;
+$pink:     #d63384 !default;
+$red:      #dc3545 !default;
+$darkred:  #fff2f0!default;
+$lightred: #ffccc7!default;
 $orange:  #fd7e14 !default;
+$darkorange:#fffbe6 !default;
+$lightorange:#ffe58f !default;
 $yellow:  #fadb14 !default;
 $green:   #52c41a !default;
 $teal:    #20c997 !default;
+$darkgreen:#f6ffed !default;
+$lightgreen:#b7eb8f !default;
 $cyan:    #17a2b8 !default;
 
 
@@ -175,7 +183,7 @@ $pre-color:                         null !default;
 // options 可配置选项
 $enable-pointer-cursor-for-buttons:           true !default;
 
-// ------------------------------------- 按钮 -------------------------------------------------
+// ------------------------------------- button -------------------------------------------------
 
 
 // 边框 和 border radius

@@ -2,7 +2,7 @@
 .alert{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     font-size: $alert-font-size;
     line-height: $alert-line-height;
     font-family: $alert-font-family;
@@ -17,12 +17,46 @@
     display: flex;
     flex-direction: column;
 }
+.alert-df{
+    display: flex;
+}
 
 // alert 的颜色类型
 .alert-success{
-    background-color: green;
-    border: 1px solid #000;
+   @include alert-style($gray-900,$darkgreen,$lightgreen)
 }
-.alert-defalut{}
-.alert-error{}
-.alert-warning{}
+.alert-default{
+    @include alert-style($gray-900,$darkblue,$lightblue)
+}
+.alert-error{
+    @include alert-style($gray-900,$darkred,$lightred)   
+}
+.alert-warning{
+    @include alert-style($gray-900,$darkorange,$lightorange)   
+}
+
+//图标
+.alert-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.alert-icon-success{
+    background: url('../../asstes/alert-success.svg');
+}
+.alert-icon-default{
+    background: url('../../asstes/alert-default.svg');
+}
+.alert-icon-error{
+    background: url('../../asstes/alert-error.svg');
+}
+.alert-icon-warning{
+    background: url('../../asstes/alert-warning.svg');
+}
+
+//关闭
+.alert-close{
+    cursor: pointer;
+}

@@ -49,6 +49,11 @@ const App: React.FC = () => {
       <p className="block" />
       <Alert alertType={AlertType.Warning} message="Warning Tips" />
       <p className="block" />
+      <Alert alertType={AlertType.Warning} title="标题" message="Warning Tips" />
+      <p className="block" />
+      <Alert alertType={AlertType.Error} showIcon message="Error Tips" close />
+      <p className="block" />
+      <Alert alertType={AlertType.Warning} title="sss" showIcon message="Error Tips" />
     </div>
   )
 }
