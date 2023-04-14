@@ -30,7 +30,7 @@ const Menu: React.FC<menuProps> = (props) => {
   // 样式
   const classbox = classNames('menu', className, {
     'menu-horizontal': mode === 'horizontal',
-    'menu-vertical': mode === 'horizontal'
+    'menu-vertical': mode === 'vertical'
   })
   // 点击事件
   const handelClick = (index: key) => {

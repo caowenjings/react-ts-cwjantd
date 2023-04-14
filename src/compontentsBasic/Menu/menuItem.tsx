@@ -17,7 +17,8 @@ const Menu: React.FC<menuItemProps> = (props) => {
 
   //样式
   const classbox = classNames('menu-item', className, {
-    'is-disable': disable
+    'is-disable': disable,
+    'menu-active': index == pContext.index
   })
   //点击事件
   const handelClick = (index: key) => {
