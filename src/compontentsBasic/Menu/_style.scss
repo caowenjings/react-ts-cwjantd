@@ -1,0 +1,51 @@
+.menu{
+  display: flex;
+  margin: 0 ;
+  padding: 0;
+}
+
+// 水平
+.menu-horizontal{
+  flex-wrap: wrap;
+  border-bottom: $menu-border-width solid $menu-border-color;
+  border-right: 0;
+
+// menu item样式
+.menu-item{
+  padding: 5px 10px;
+  margin-right: 20px;
+  list-style: none;
+  cursor: pointer;
+  &:hover,&:focus{
+    text-decoration: none;
+  }
+  &.is-disable{
+    cursor: default;
+    pointer-events: none;
+    color: $menu-item-disabled-color;
+  }
+  &.is-menu-active, &:hover {
+    color: $menu-item-active-color;
+    border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+  }
+}
+}
+// 垂直
+.menu-vertical{
+  flex-direction: column;
+  border-bottom:0 ;
+  border-left: $menu-border-width solid $menu-border-color;
+  .menu-item{
+    list-style: none;
+    cursor: pointer;
+    border-left: 1px solid transparent;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    &.is-menu-active, &:hover {
+      color: $menu-item-active-color;
+      border-bottom: 0;
+      border-left: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+}
+

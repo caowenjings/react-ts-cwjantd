@@ -7,7 +7,7 @@ type selectCallback = (selectIndex: string | number) => void
 export type key = number | string
 
 // 组件接口
-interface menuProps {
+export interface MenuProps {
   defalutIndex?: key
   className?: string
   mode?: menuMode
@@ -17,16 +17,17 @@ interface menuProps {
 }
 // 要传入子组件的数据接口
 interface IMenuContext {
-  index: key
+  activeIndex: key
   onSelect?: selectCallback
 }
 
 // 利用context 来进行父子穿参数，自定义回调
-export const MenuContext = createContext<IMenuContext>({ index: 0 })
+export const MenuContext = createContext<IMenuContext>({ activeIndex: 0 })
 
-const Menu: React.FC<menuProps> = (props) => {
-  const { defalutIndex = 0, className, mode = 'horizontal', style, onSelect, children } = props
+const Menu: React.FC<MenuProps> = (props) => {
+  const { defalutIndex = 0, className, mode = 'vertical', style, onSelect, children } = props
   const [activeIndex, setActiveIndex] = useState(defalutIndex)
+
   // 样式
   const classbox = classNames('menu', className, {
     'menu-horizontal': mode === 'horizontal',
@@ -38,13 +39,15 @@ const Menu: React.FC<menuProps> = (props) => {
     onSelect && onSelect(activeIndex)
   }
   // 传入的参数
+  // eslint-disable-next-line
   const pContent = {
-    index: activeIndex,
+    // eslint-disable-next-line
+    activeIndex: activeIndex,
     onSelect: handelClick
   }
 
   return (
-    <ul className={classbox} style={style}>
+    <ul className={classbox} style={style} data-testid="test-menu">
       <MenuContext.Provider value={pContent}>{children}</MenuContext.Provider>
     </ul>
   )

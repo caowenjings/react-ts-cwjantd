@@ -4,34 +4,36 @@ import classNames from 'classnames'
 import { MenuContext, key } from './index'
 
 interface menuItemProps {
-  disable?: boolean
-  index: number | string
+  disabled?: boolean
+  index?: number | string
   className?: string
   style?: CSSProperties
   children: React.ReactNode
 }
 
-const Menu: React.FC<menuItemProps> = (props) => {
-  const { className, style, disable, children, index } = props
+const MenuItem: React.FC<menuItemProps> = (props) => {
+  const { className, style, disabled, children, index } = props
   const pContext = useContext(MenuContext)
 
   //样式
   const classbox = classNames('menu-item', className, {
-    'is-disable': disable,
-    'menu-active': index == pContext.index
+    'is-disable': disabled,
+    'is-menu-active': index == pContext.activeIndex
   })
+
   //点击事件
   const handelClick = (index: key) => {
-    if (pContext.onSelect && !disable) {
+    if (pContext.onSelect && !disabled) {
       pContext.onSelect(index)
     }
   }
 
   return (
-    <li className={classbox} style={style} onClick={() => handelClick(pContext.index)}>
+    // eslint-disable-next-line
+    <li className={classbox} style={style} onClick={() => handelClick(pContext.activeIndex)}>
       {children}
     </li>
   )
 }
 
-export default Menu
+export default MenuItem
