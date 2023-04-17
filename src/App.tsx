@@ -11,12 +11,12 @@ import MenuUse from './views/menuUse'
 const App: React.FC = () => {
   return (
     <div className="App">
+      <li> --------------BaseMenu---------------- </li>
+      <MenuUse />
       <li> --------------BaseButton---------------- </li>
       <ButtonUse />
       <li> --------------BaseAlert---------------- </li>
       <AlertUse />
-      <li> --------------BaseMenu---------------- </li>
-      <MenuUse />
     </div>
   )
 }
