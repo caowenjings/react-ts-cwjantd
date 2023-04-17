@@ -4,6 +4,7 @@
  * 2.写默认值
  * 3.写使用组件
  * 4.beforeEach中写通用函数，获取元素
+ * npm run test 执行
  */
 import React from 'react'
 import { render, RenderResult, fireEvent, wait } from '@testing-library/react'

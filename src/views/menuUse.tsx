@@ -12,7 +12,7 @@ const App: React.FC = () => {
       <div className="list">
         <Menu>
           <MenuItem index={0}>第一课</MenuItem>
-          <MenuItem index={1} disable>
+          <MenuItem index={1} disabled>
             第二课
           </MenuItem>
           <MenuItem index={2}>第三课</MenuItem>

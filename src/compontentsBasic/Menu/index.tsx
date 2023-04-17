@@ -53,4 +53,10 @@ const Menu: React.FC<MenuProps> = (props) => {
   )
 }
 
+Menu.defaultProps = {
+  defalutIndex: '0',
+  mode: 'horizontal'
+  // defaultOpenSubMenus: []
+}
+
 export default Menu
